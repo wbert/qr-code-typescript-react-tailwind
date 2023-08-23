@@ -2,8 +2,10 @@ import Icon from './assets/react.svg'
 import TextArea from './components/TextArea';
 import QRCode from './components/QRcode';
 import Hero from './components/Hero';
+import Footer from './components/Footer'
 import { useState } from 'react';
 import * as htmlToImage from 'html-to-image';
+
 
 
 function App() {
@@ -16,7 +18,8 @@ function App() {
   };
 
   const handleTextAreaChange = (e: any) => {
-    setText(e.target.value);
+    const input = e.target.value;
+    setText(input.trim());
 
   };
 
@@ -36,7 +39,7 @@ function App() {
   return (
 
     <div>
-      <nav className="bg-white dark:bg-gray-900  shadow ">
+      <nav className="bg-gray-100 dark:bg-gray-900 shadow ">
         <div className="px-8 mx-auto max-w-8xl">
           <div className="flex items-center justify-between h-16">
             <div className="w-full justify-between flex items-center">
@@ -77,7 +80,8 @@ function App() {
         {isMenuOpen ? <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <center>
-              <a className="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium" href="/#" onClick={toggleMenu}>
+              
+              <a className="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium" href="#hero" onClick={toggleMenu}>
                 Home
               </a>
               <a className="text-gray-800 dark:text-white block px-3 py-2 rounded-md text-base font-medium" href="/#" onClick={toggleMenu}>
@@ -89,26 +93,27 @@ function App() {
               <a className="text-gray-300 hover:text-gray-800 dark:hover:text-white block px-3 py-2 rounded-md text-base font-medium" href="/#" onClick={toggleMenu}>
                 Contact
               </a>
+
             </center>
           </div>
         </div> : null}
       </nav>
       {/* prose lg:prose-md */}
+ 
       <Hero />
-      <div className="dark:bg-gray-700 shadow text-white py-16 lg:py-72 md:py-72 px-4 sm:px-6 lg:px-8">
+      <div className="bg-gray-100 text-black dark:bg-gray-700 shadow dark:text-white py-16 lg:pb-72 md:pb-72 px-4 sm:px-6 lg:px-8 sm:pb-72">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center">
 
-          
-          <div className="container mx-auto p-4">
-            <h1 className="text-2xl font-bold mb-3">Enter Qr Code Content</h1>
+          <div className="container mx-auto p-4  ">
+            <h1 className="text-2xl font-bold mb-3 text-center pb-16">Enter Qr Code Content</h1>
             <TextArea value={text} onInput={handleTextAreaChange} className="text-dark" />
             {/* Display the text from the textarea */}
             <div className="mt-4 items-center" id="content">
               {text ? (
                 <div className="mt-4">
-                  <h2 className="text-4xl font-extrabold leading-tight sm:text-5xl md:text-5md  text-center text-white-800 mb-3">QR Code</h2>
+                  <h2 className="text-4xl font-extrabold leading-tight sm:text-5xl md:text-5md  text-center text-white-800 mb-3 mt-32">QR Code</h2>
                   <div className="flex flex-col items-center justify-center">
-                    <div className="mb-16 md:mb-0">
+                    <div className="mb-16 md:mb-0 ">
                       <QRCode value={text} className="w-256 h-auto mx-auto sm:mx-0 " />
                     </div>
                     <button
@@ -120,11 +125,12 @@ function App() {
                   </div>
                 </div>
               ):
-              <h2 className="text-4xl font-extrabold leading-tight sm:text-5xl md:text-5md  text-center  text-white-800 mt-3">No QrCode Generated</h2>}
+              <h2 className="text-4xl font-extrabold leading-tight sm:text-5xl md:text-5md  text-center  text-white-800 mt-3 lg:mt-48 md:mt-48 sm:mt-48">No QrCode Generated</h2>}
             </div>
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
 
 

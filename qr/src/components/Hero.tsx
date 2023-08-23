@@ -4,7 +4,7 @@ import { Link } from 'react-scroll';
 
 const Hero = () => {
   return (
-    <div className="dark:bg-gray-800 shadow text-white py-16 lg:py-72 md:py-72 px-4 sm:px-6 lg:px-8">
+    <div className="bg-white dark:text-white dark:bg-gray-800 shadow text-black py-16 lg:pt-48 lg:pb-72 md:pb-72 px-4 sm:px-6 lg:px-8">
       <div className="max-w-12xl mx-auto flex flex-col sm:flex-row items-center">
         <div className="sm:w-5/12 sm:my-5 sm:mb-5">
           <img
